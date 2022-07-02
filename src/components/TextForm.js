@@ -19,9 +19,7 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
   const copy = () => {
-    var text = document.getElementById("exampleFormControlTextarea1");
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
   };
   const [text, setText] = useState("");
   return (
@@ -87,7 +85,7 @@ export default function TextForm(props) {
             <ul>
               <li>
                 {
-                  text.split(" ").filter((element) => {
+                  text.split(/\s+/).filter((element) => {
                     return element.length !== 0;
                   }).length
                 }{" "}
